@@ -5,6 +5,9 @@ var bodyParser = require('body-parser');
 var port = process.env.PORT || 8000;
 app.use(bodyParser.json({ extended: true }));
 
+// CRUD
+// create read update delete (destroy)
+
 // Get all guests
 app.get('/guests', function(req, res) {
 
@@ -26,8 +29,9 @@ app.put('/guests/:id', function(req, res) {
 });
 
 // Delete one guest
-app.delete('/guests/:index', function(req, res) {
-
+app.delete('/guests/:id', function(req, res) {
+  console.log("Making the delete request");
+  res.json(req.params.id);
 });
 
 app.listen(port, function() {
